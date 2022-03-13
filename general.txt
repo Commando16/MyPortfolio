@@ -1,0 +1,24 @@
+Mapping -
+
+Doob = learning section
+Folio = main portfolio section
+
+
+What to do -
+
+ - make a learning page
+ Done           - make cover photo
+ Done           - make about me photo
+ Done           - make a different contact page
+ Done           - make a json file for blogs and folder for its images
+ Done           - make a json file for project and folder for its images 
+ Done           - remove contact section from the main portfolio page 
+ - Download my CV m resule ki link dalni h
+ - footer m copywrite section hatana h+
+ Done           - not found page lagna h
+ Done           - main pages par projects ki links lagani h
+ - main pages par blogs ki links lagani h
+ - not found page par redirect lagana h
+ - not found page ka button blue krna h
+ 
+-- MY tools section

@@ -1,0 +1,16 @@
+{
+
+    "1" : {
+        "blogtitle" : "Which language to choose...?",
+        "blogcatagory" : "Tech",
+        "blogdate" : "16, September 2020",
+        "image" : "../static/BlogImages/blog1.jpg",
+        "p1": "test blog para 1",
+        "p2": "test blog para 2",
+        "p3": "test blog para 3",
+        "p4": "test blog para 4",
+        "p5": "test blog para 5"
+    }
+
+
+}
