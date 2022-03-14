@@ -17,6 +17,16 @@ body{
 
 #landingSection{
     height: 100vh;
+
+    #menuButton{
+        height: 60px;
+        width: 60px;
+
+        img{
+            height: 100%;
+            width: 100%;
+        }
+    }
 }
 
 #rightImageBox{
