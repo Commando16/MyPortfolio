@@ -25,6 +25,16 @@ body {
   border: 0px;
 }
 
+#rightParentBox .toolCard {
+  width: 200px;
+  height: 500px;
+}
+#rightParentBox .cardImage {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+}
+
 #searchBar {
   height: 40px;
   background-color: rgba(0, 0, 0, 0.2);

@@ -15,13 +15,32 @@
 
 <body>
   <section class="flex justify-center px-4 lg:px-12" id="allTools">
-    <div class="glassMorph rounded-lg self-center flex flex-col-reverse md:flex-row justify-start">
+    <div class="glassMorph rounded-lg self-center flex flex-col md:flex-row justify-start">
+      <!-- Left parent -->
       <div class="glassMorph h-full w-full md:w-80 rounded-l-lg px-4 pt-8" id="leftParentBox">
         <div class="rounded-full p-2 flex flex-row justify-start" id="searchBar">
           <img class="object-scale-down mx-2" src="./static/images/icons/search.svg" alt="">
           <input type="text" class="w-full font-semibold" id="searchBarInput">
-        </div>    
+        </div>
       </div>
+      <!-- Left parent end-->
+      <!-- Right parent -->
+      <div class="h-full w-full md:w-full rounded-r-lg px-4 pt-8" id="rightParentBox">
+        <div class="toolCard glassMorph rounded-[16px] p-4">
+          <!-- rating -->
+          <p>
+            <span class="ratingText text-2xl text-white/[0.9] mx-1">3</span>
+            <span class="ratingText text-2xl text-white/[0.9] mx-1">&#11088</span>
+          </p>
+          <!-- rating end -->
+          <!-- card image -->
+          <div class="flex">
+            <img class="cardImage glassMorph rounded-full my-4" src="./static/images/brandImages/keyframes_app.png" alt="">
+          </div>
+          <!-- card image -->
+        </div>
+      </div>
+      <!-- Right parent end -->
     </div>
   </section>
 </body>
