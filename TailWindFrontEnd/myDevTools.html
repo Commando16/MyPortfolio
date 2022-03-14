@@ -7,14 +7,23 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Custom Css -->
-  <link rel="stylesheet" href="static/scss/index.css">
+  <link rel="stylesheet" href="static/scss/myDevTools.css">
   <link rel="stylesheet" href="static/scss/common.css">
   <!-- Custom Css End-->
 
 </head>
 
 <body>
-  
+  <section class="flex justify-center px-4 lg:px-12" id="allTools">
+    <div class="glassMorph rounded-lg self-center flex flex-col-reverse md:flex-row justify-start">
+      <div class="glassMorph h-full w-full md:w-80 rounded-l-lg px-4 pt-8" id="leftParentBox">
+        <div class="rounded-full p-2 flex flex-row justify-start" id="searchBar">
+          <img class="object-scale-down mx-2" src="./static/images/icons/search.svg" alt="">
+          <input type="text" class="w-full font-semibold" id="searchBarInput">
+        </div>    
+      </div>
+    </div>
+  </section>
 </body>
 
 </html>
