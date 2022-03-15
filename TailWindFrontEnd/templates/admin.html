@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Css -->
+  <link rel="stylesheet" href="../static/scss/admin.css">
+  <link rel="stylesheet" href="../static/scss/common.css">
+  <!-- Custom Css End-->
+
+</head>
+
+<body>
+  <section class="flex justify-center px-4 lg:px-12" id="adminBoxParent">
+    <div class="glassMorph rounded-lg self-center flex flex-col justify-start p-4" id="adminBox">
+        <h1 class="text-4xl text-white/[0.9] self-center my-8" id="">Admin Login</h1>
+        <!-- user name input -->
+        <div class="iconInput rounded-full p-2 flex flex-row justify-start my-4">
+            <img class="object-scale-down mx-2" src="../static/images/icons/search.svg" alt="">
+            <input type="text" class="inputBars w-full font-semibold" id="userInp">
+        </div>
+        <!-- user name input ends-->
+        <!-- user name input -->
+        <div class="iconInput rounded-full p-2 flex flex-row justify-start my-4">
+            <img class="object-scale-down mx-2" src="../static/images/icons/search.svg" alt="">
+            <input type="password" class="inputBars w-full font-semibold" id="passwordInp">
+        </div>
+        <!-- user name input ends-->
+        <button class="glassMorph text-2xl text-white font-medium rounded-full self-center mx-2" id="loginButton">Login</button>
+    </div>
+  </section>
+
+  <!-- custome js -->
+  <script src="../static/js/adminLogin.js"></script>
+  <!-- custome js end -->
+</body>
+
+</html>
