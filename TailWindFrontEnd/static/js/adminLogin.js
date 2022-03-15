@@ -6,5 +6,11 @@ function adminLogin(){
     userInpValue = userInp.value.trim();
     passwordInpValue = passwordInp.value;
 
+    if( userInpValue.length === 0 ){
+        alert("admin name field empty");
+    }
+    else if(passwordInpValue.length === 0){
+        alert("password field cannot be empty");
+    }
     console.log(userInpValue+" "+passwordInpValue);
 }
