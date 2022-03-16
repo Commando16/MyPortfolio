@@ -19,3 +19,37 @@ body{
 #adminBoxParent{
     height: 100vh;
 }
+
+#leftParentBox{
+    // background-color: rgba(255,255,255,0.5);
+    background-color: rgba(0, 0, 0, 0.1);
+    border: 0px;
+
+    #logoutButton{
+        height: auto;
+        width: auto;
+        bottom: 10px;
+        left: 50%;
+        transform: translate(-50%);
+        transition: 0.15s ease-in-out;
+    
+        &:hover{
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+.controllerBox{
+    height: auto;
+}
+
+
+#reviewImage{
+    height: 250px;
+    width: 250px;
+}
+
+#reviewImageInp{
+    height: 30px;
+}
+       

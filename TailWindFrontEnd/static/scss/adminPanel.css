@@ -18,4 +18,33 @@ body {
 
 #adminBoxParent {
   height: 100vh;
+}
+
+#leftParentBox {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 0px;
+}
+#leftParentBox #logoutButton {
+  height: auto;
+  width: auto;
+  bottom: 10px;
+  left: 50%;
+  transform: translate(-50%);
+  transition: 0.15s ease-in-out;
+}
+#leftParentBox #logoutButton:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.controllerBox {
+  height: auto;
+}
+
+#reviewImage {
+  height: 250px;
+  width: 250px;
+}
+
+#reviewImageInp {
+  height: 30px;
 }/*# sourceMappingURL=adminPanel.css.map */
