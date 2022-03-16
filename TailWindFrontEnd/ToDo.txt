@@ -5,4 +5,19 @@
 ##### design my dev tools page
 ##### Add a page for my dev tools
 
-# change icon on admin page input fields
+# change icon on admin page input fields.
+
+
+## Admin panel stuff
+ - blog entry
+ - blog delete
+ - blog edit
+
+ - toolrecondation add/entry
+ - tool recondation delete
+ - tool recondation edit
+
+ - admin password change
+ - profile picture change
+ - social media add
+ - 
