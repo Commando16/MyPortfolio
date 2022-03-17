@@ -23,14 +23,33 @@ const databaseRef = ref(db);
 
 // event listener
     document.getElementById("reviewImageInp").addEventListener("change",changeProfilePicture);
+    document.getElementById("changePasswordSubmitBtn").addEventListener("click",changeAdminPassword);
 // event listener end
 
 
 
 
 
-
+// functions 
 
 function changeProfilePicture(){
     alert("hello event fired");
 }
+
+function changeAdminPassword(){
+    let renewPasswordInp = document.getElementById("renewPasswordInp");
+    let renewPasswordInpValue = renewPasswordInp.value;
+    
+    if(renewPasswordInpValue.length > 0){
+        alert("valid length");
+    }
+    else{
+        alert("empty field");
+    }
+
+    renewPasswordInp.value = "";
+}
+
+// functions end
+
+

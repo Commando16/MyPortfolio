@@ -47,4 +47,24 @@ body {
 
 #reviewImageInp {
   height: 30px;
+  width: auto;
+}
+
+#renewPasswordInp {
+  height: 50px;
+}
+#renewPasswordInp:focus {
+  outline: none;
+}
+
+#changePasswordSubmitBtn {
+  height: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  bottom: 10px;
+  transition: 0.15s ease-in-out;
+}
+#changePasswordSubmitBtn:hover {
+  background-color: rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=adminPanel.css.map */

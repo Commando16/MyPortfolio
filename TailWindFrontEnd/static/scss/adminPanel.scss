@@ -51,5 +51,29 @@ body{
 
 #reviewImageInp{
     height: 30px;
+    width: auto;
 }
+
+
+#renewPasswordInp{
+    height: 50px;
+
+    &:focus{
+        outline: none;
+    }
+}
+
+#changePasswordSubmitBtn{
+    height: auto;
+    width: fit-content;
+    bottom: 10px;
+    // left: 50%;
+    // transform: translate(-50%);
+    transition: 0.15s ease-in-out;
+
+    &:hover{
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
        
