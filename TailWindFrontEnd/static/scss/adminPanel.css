@@ -24,6 +24,13 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   border: 0px;
 }
+#leftParentBox #menu li {
+  transition: 0.1s ease-in;
+}
+#leftParentBox #menu li:hover {
+  background-color: white;
+  color: rgba(0, 0, 0, 0.9);
+}
 #leftParentBox #logoutButton {
   height: auto;
   width: auto;

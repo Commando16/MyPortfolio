@@ -25,6 +25,16 @@ body{
     background-color: rgba(0, 0, 0, 0.1);
     border: 0px;
 
+    #menu{
+        li{
+            transition: 0.1s ease-in;
+            &:hover{
+                background-color: white;
+                color: rgba(0, 0, 0, 0.9);
+            }
+        }
+    }
+
     #logoutButton{
         height: auto;
         width: auto;

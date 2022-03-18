@@ -17,7 +17,12 @@
   <section class="flex justify-center px-4 lg:px-12" id="adminBoxParent">
     <div class="glassMorph rounded-lg self-center flex flex-row justify-start" id="adminBox">
       <!-- left parent box -->
-      <div class="glassMorph overflow-auto h-full w-full md:w-80 rounded-l-lg px-4 pt-8 relative" id="leftParentBox">
+      <div class="glassMorph overflow-auto h-full w-full md:w-80 rounded-l-lg pt-8 relative" id="leftParentBox">
+        <ul id="menu">
+          <li class="text-xl text-white/[0.9] font-medium leading-loose px-4" id="menuButtonProfile" data-controller-box-name="profileControllers">Profile</li>
+          <li class="text-xl text-white/[0.9] font-medium leading-loose px-4" id="menuButtonToolRecommendation" data-controller-box-name="toolRecommendationControllers">Tool Recommendation</li>
+          <li class="text-xl text-white/[0.9] font-medium leading-loose px-4" id="menuButtonBlog" data-controller-box-name="blogControllers">Blog</li>
+        </ul>
         <!-- log out button -->
         <button class="absolute glassMorph rounded-full text-2xl text-white/[0.9] font-medium py-2 px-6" id="logoutButton"> logout </button>
         <!-- log out button ends-->
@@ -27,9 +32,9 @@
       <!-- Right parent -->
       <div class="overflow-y-auto h-full w-full md:w-full rounded-r-lg px-4 py-8" id="rightParentBox">
         <!-- profile -->
-        <div class="w-full flex flex-wrap" id="ProfileControllers">
+        <div class="controllerContainer w-full h-full flex flex-wrap" id="profileControllers">
           <!-- change profile -->
-          <div id="changeProfilePicParentBox m-1">
+          <div id="changeProfilePicParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Change Profile Picture</h1>
             <div class="controllerBox glassMorph rounded-lg flex flex-col w-full py-4 px-2" id="changeProfilePicBox">
               <img class="glassMorph rounded-full my-4 self-center" id="reviewImage" src="../static/images/profile/profilePic1.png" alt="">
@@ -39,7 +44,7 @@
           <!-- change profile -->
           <!--  -->
           <!-- change password -->
-          <div id="changePasswordParentBox m-1">
+          <div id="changePasswordParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Change Password</h1>
             <div class="controllerBox glassMorph rounded-lg flex flex-col m-1 w-full py-8 px-2" id="changePasswordBox">
               <input type="text" class="self-center rounded-full font-medium text-2xl px-2" id="renewPasswordInp">
@@ -48,15 +53,34 @@
           </div>
           <!-- change password end -->
         </div>
-        <!-- profile stuff -->
-        <!-- change password -->
-        
+        <!-- profile end -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!-- tool recommendation -->
+        <div class="controllerContainer w-full h-full flex flex-wrap hidden" id="toolRecommendationControllers">
+          tools
+        </div>
+        <!-- tool recommendation end-->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!--  -->
+        <!-- blog -->
+        <div class="controllerContainer w-full h-full flex flex-wrap hidden" id="blogControllers">
+          blog
+        </div>
+        <!-- blog end -->
       </div>
+      <!-- Right parent -->
     </div>
   </section>
 
 
-  <!-- custome js -->
+  <!-- custom js -->
   <!-- <script type="module" src="../static/js/fireBaseConfig.js"></script> -->
   <script type="module" src="../static/js/adminPanel.js"></script>
   <!-- custome js end -->

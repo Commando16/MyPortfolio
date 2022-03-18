@@ -24,6 +24,9 @@ const databaseRef = ref(db);
 // event listener
     document.getElementById("reviewImageInp").addEventListener("change",changeProfilePicture);
     document.getElementById("changePasswordSubmitBtn").addEventListener("click",changeAdminPassword);
+    document.getElementById("menuButtonProfile").addEventListener("click",controllerDisplay);
+    document.getElementById("menuButtonToolRecommendation").addEventListener("click",controllerDisplay);
+    document.getElementById("menuButtonBlog").addEventListener("click",controllerDisplay);
 // event listener end
 
 
@@ -49,6 +52,23 @@ function changeAdminPassword(){
 
     renewPasswordInp.value = "";
 }
+
+function controllerDisplay(){
+    // alert(this.dataset.controllerBoxName);
+    let targetedControllerId = this.dataset.controllerBoxName; // because data set contain the exact id of targeted element
+    let controllerContainerArray = document.getElementsByClassName("controllerContainer");
+
+    for( let containerItr of controllerContainerArray){
+        // console.log(containerItr);
+        containerItr.classList.remove("block");
+        containerItr.classList.add("hidden");
+    }
+
+    // console.log(document.getElementById(targetedControllerId));
+    document.getElementById(targetedControllerId).classList.remove("hidden");
+    document.getElementById(targetedControllerId).classList.add("block");
+}
+
 
 // functions end
 
