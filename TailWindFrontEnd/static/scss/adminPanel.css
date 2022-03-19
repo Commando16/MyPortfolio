@@ -57,14 +57,14 @@ body {
   width: auto;
 }
 
-#renewPasswordInp {
-  height: 50px;
+.controllersInputs {
+  height: 40px;
 }
-#renewPasswordInp:focus {
+.controllersInputs:focus {
   outline: none;
 }
 
-#changePasswordSubmitBtn {
+.controllersButtons {
   height: auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -72,6 +72,10 @@ body {
   bottom: 10px;
   transition: 0.15s ease-in-out;
 }
-#changePasswordSubmitBtn:hover {
+.controllersButtons:hover {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+#addToolDescriptionInp {
+  height: 150px;
 }/*# sourceMappingURL=adminPanel.css.map */

@@ -32,7 +32,7 @@
       <!-- Right parent -->
       <div class="overflow-y-auto h-full w-full md:w-full rounded-r-lg px-4 py-8" id="rightParentBox">
         <!-- profile -->
-        <div class="controllerContainer w-full h-full flex flex-wrap" id="profileControllers">
+        <div class="controllerContainer w-full h-full flex flex-wrap hidden" id="profileControllers">
           <!-- change profile -->
           <div id="changeProfilePicParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Change Profile Picture</h1>
@@ -47,8 +47,8 @@
           <div id="changePasswordParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Change Password</h1>
             <div class="controllerBox glassMorph rounded-lg flex flex-col m-1 w-full py-8 px-2" id="changePasswordBox">
-              <input type="text" class="self-center rounded-full font-medium text-2xl px-2" id="renewPasswordInp">
-              <button class="glassMorph text-2xl text-white/[0.9] self-center font-medium rounded-full px-5 mt-4" id="changePasswordSubmitBtn">Set</button>
+              <input type="text" class="controllersInputs self-center rounded-full font-medium text-xl px-2" id="renewPasswordInp">
+              <button class="controllersButtons glassMorph text-2xl text-white/[0.9] self-center font-medium rounded-full px-5 mt-4" id="changePasswordSubmitBtn">Set</button>
             </div>
           </div>
           <!-- change password end -->
@@ -60,8 +60,25 @@
         <!--  -->
         <!--  -->
         <!-- tool recommendation -->
-        <div class="controllerContainer w-full h-full flex flex-wrap hidden" id="toolRecommendationControllers">
-          tools
+        <div class="controllerContainer w-full h-full flex flex-wrap block" id="toolRecommendationControllers">
+          <!-- add tool -->
+          <div id="addToolParentBox">
+            <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Add tool</h1>
+            <div class="controllerBox glassMorph rounded-lg flex flex-col w-full py-4 px-2">
+              <!---->
+              <label for="addToolNameInp" class="text-xl text-white/[0.9] leading-loose">Tool name</label>
+              <input type="text" class="controllersInputs self-center rounded-full font-medium text-xl px-2" id="addToolNameInp">
+              <!---->
+              <label for="addToolUrlInp" class="text-xl text-white/[0.9] leading-loose">Tool URL</label>
+              <input type="text" class="controllersInputs self-center rounded-full font-medium text-xl px-2" id="addToolUrlInp">
+              <!---->
+              <label for="addToolDescriptionInp" class="text-xl text-white/[0.9] leading-loose">Tool Description</label>
+              <textarea type="textarea" class="controllersInputs self-center rounded-[25px] font-medium w-full text-xl px-2" id="addToolDescriptionInp"></textarea>
+              <!---->
+              <button class="controllersButtons glassMorph text-2xl text-white/[0.9] self-center font-medium rounded-full px-5 mt-4" id="addToolSubmitBtn">Add</button>
+            </div>
+          </div>
+          <!-- add tool -->
         </div>
         <!-- tool recommendation end-->
         <!--  -->

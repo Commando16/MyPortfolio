@@ -65,20 +65,18 @@ body{
 }
 
 
-#renewPasswordInp{
-    height: 50px;
+.controllersInputs{
+    height: 40px;
 
     &:focus{
         outline: none;
     }
 }
 
-#changePasswordSubmitBtn{
+.controllersButtons{
     height: auto;
     width: fit-content;
     bottom: 10px;
-    // left: 50%;
-    // transform: translate(-50%);
     transition: 0.15s ease-in-out;
 
     &:hover{
@@ -86,4 +84,7 @@ body{
     }
 }
 
+#addToolDescriptionInp{
+    height: 150px;
+}
        
