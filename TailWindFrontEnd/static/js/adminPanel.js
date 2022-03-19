@@ -22,11 +22,15 @@ const databaseRef = ref(db);
 
 
 // event listener
-    document.getElementById("reviewImageInp").addEventListener("change",changeProfilePicture);
-    document.getElementById("changePasswordSubmitBtn").addEventListener("click",changeAdminPassword);
+    // menu
     document.getElementById("menuButtonProfile").addEventListener("click",controllerDisplay);
     document.getElementById("menuButtonToolRecommendation").addEventListener("click",controllerDisplay);
     document.getElementById("menuButtonBlog").addEventListener("click",controllerDisplay);
+    
+    // profile 
+    document.getElementById("reviewImageInp").addEventListener("change",changeProfilePicture);
+    document.getElementById("changePasswordSubmitBtn").addEventListener("click",changeAdminPassword);
+    
 // event listener end
 
 
@@ -44,7 +48,17 @@ function changeAdminPassword(){
     let renewPasswordInpValue = renewPasswordInp.value;
     
     if(renewPasswordInpValue.length > 0){
-        alert("valid length");
+        update(ref(db, "AdminCredential/"), {
+            adminPassword: renewPasswordInpValue,
+        })
+        .then(() => {
+            alert("password changes successfully");
+        })
+        .catch((error) => {
+            console.log(error);
+            alert("error aa gai h user entry");
+        });
+
     }
     else{
         alert("empty field");
