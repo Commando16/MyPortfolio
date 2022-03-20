@@ -57,6 +57,11 @@ body {
   width: auto;
 }
 
+.controllerLoadingGifs {
+  height: 100px;
+  width: 200px;
+}
+
 .controllersInputs {
   height: 40px;
 }

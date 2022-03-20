@@ -21,14 +21,13 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const databaseRef = ref(db);
 
+// 
+// 
+// 
+// 
+// 
 
-
-
-
-
-
-
-// event listener
+// event listener ---------------------------------------------------------------
 // menu
 document.getElementById("menuButtonProfile").addEventListener("click", controllerDisplay);
 document.getElementById("menuButtonToolRecommendation").addEventListener("click", controllerDisplay);
@@ -44,13 +43,25 @@ document.getElementById("addToolSubmitBtn").addEventListener("click", addTool);
 // blogs
 document.getElementById("addBlogSubmitBtn").addEventListener("click", addBlog);
 
-// event listener end
+// event listener end ------------------------------------------------------------
 
+//
+// 
+// 
+// 
+// 
 
+// initial function call -----------------------------------------------------
+fetchAllTools();
+// initial function call end -------------------------------------------------
 
+//
+// 
+// 
+// 
+// 
 
-
-// functions 
+// functions ------------------------------------------------------------
 
 function changeProfilePicture() {
     alert("hello event fired");
@@ -148,6 +159,35 @@ function addTool() {
 }
 // end
 
+// function to fetch and display all tools in DB
+function fetchAllTools(){
+    let historyOfToolInnerBox = document.getElementById("historyOfToolInnerBox");
+    let historyOfToolInnerBoxInnerHtmlDynamic = "";
+
+    loadingGifVisibilityToggle( "historyOfToolLoadingGif", "show");
+    get(child(databaseRef, "Tools"))
+        .then((snapshot) => { 
+            snapshot.forEach((child) =>{
+                // console.log(child.val());
+                historyOfToolInnerBoxInnerHtmlDynamic = historyOfToolInnerBoxInnerHtmlDynamic+
+                `<div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg my-2">`+
+                    `<span class="toolId text-xl text-white mx-1">${child.val().toolId}</span>`+
+                    `<span class="toolId text-xl text-white mx-1 w-full">${child.val().toolName}</span>`+
+                    `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}"> Edit </button>`+
+                    `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}"> Delete </button>`+
+                `</div>`;
+            });     
+            historyOfToolInnerBox.innerHTML = historyOfToolInnerBox.innerHTML + historyOfToolInnerBoxInnerHtmlDynamic;
+
+            loadingGifVisibilityToggle( "historyOfToolLoadingGif", "hide");
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("error aa gai h all tool fetch krne m");
+        });
+}
+// end
+
 // function to add new blog
 function addBlog() {    
     let addBlogTitleInp = document.getElementById("addBlogTitleInp");
@@ -221,7 +261,22 @@ function updateBlogSerialCount( updatedBlogCount ){
 }
 // end
 
+// function to toggle loading gif visibility
+function loadingGifVisibilityToggle( gifId, visibilityStatus){
+    let loadingGif = document.getElementById(gifId);
 
-// functions end
+    if( visibilityStatus === "hide" ){
+        loadingGif.classList.remove("block");
+        loadingGif.classList.add("hidden");
+    }
+    else if(visibilityStatus === "show"){
+        loadingGif.classList.remove("hidden");
+        loadingGif.classList.add("block");
+    }
+}
+// function end
+
+
+// functions end -------------------------------------------------------
 
 

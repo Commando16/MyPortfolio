@@ -61,6 +61,27 @@
         <!--  -->
         <!-- tool recommendation -->
         <div class="controllerContainer w-full h-full flex flex-wrap block" id="toolRecommendationControllers">
+          <!-- history of tools -->
+          <div class="w-full" id="historyOfToolParentBox">
+            <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Tool history</h1>
+            <div class="controllerBox glassMorph rounded-lg flex flex-col w-full py-4 px-2" id="historyOfToolInnerBox">
+              <!-- loading gif -->
+              <img class="controllerLoadingGifs self-center hidden" src="../static/images/loading/loadingAnimation.gif" alt="" id="historyOfToolLoadingGif">
+              
+              <!-- DYNAMIC CONTENT HERE -->
+              <!-- 
+              <div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg">
+                <span class="toolId text-xl text-white mx-1">0</span>
+                <span class="toolId text-xl text-white mx-1 w-full">falana dhimkana</span>
+                <button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1" data-tool-id="0"> Edit </button>
+                <button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1" data-tool-id="0"> Delete </button>
+              </div> 
+              -->
+              
+            </div>
+          </div>
+          <!-- history of tools end -->
+          <!--  -->
           <!-- add tool -->
           <div id="addToolParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Add tool</h1>
