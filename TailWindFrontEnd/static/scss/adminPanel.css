@@ -76,6 +76,6 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-#addToolDescriptionInp {
+.controllersTextAreas {
   height: 150px;
 }/*# sourceMappingURL=adminPanel.css.map */

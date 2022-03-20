@@ -41,6 +41,8 @@ document.getElementById("changePasswordSubmitBtn").addEventListener("click", cha
 // tools
 document.getElementById("addToolSubmitBtn").addEventListener("click", addTool);
 
+// blogs
+document.getElementById("addBlogSubmitBtn").addEventListener("click", addBlog);
 
 // event listener end
 
@@ -54,6 +56,7 @@ function changeProfilePicture() {
     alert("hello event fired");
 }
 
+// function to change admin password
 function changeAdminPassword() {
     let renewPasswordInp = document.getElementById("renewPasswordInp");
     let renewPasswordInpValue = renewPasswordInp.value;
@@ -77,7 +80,9 @@ function changeAdminPassword() {
 
     renewPasswordInp.value = "";
 }
+//end
 
+// function to switch between different section(controller section) { profile, tool, blog }
 function controllerDisplay() {
     // alert(this.dataset.controllerBoxName);
     let targetedControllerId = this.dataset.controllerBoxName; // because data set contain the exact id of targeted element
@@ -93,13 +98,13 @@ function controllerDisplay() {
     document.getElementById(targetedControllerId).classList.remove("hidden");
     document.getElementById(targetedControllerId).classList.add("block");
 }
+// end
 
+// function to add new tool
 function addTool() {
     let addToolNameInp = document.getElementById("addToolNameInp");
     let addToolUrlInp = document.getElementById("addToolUrlInp");
     let addToolDescriptionInp = document.getElementById("addToolDescriptionInp");
-
-    
 
     if( addToolNameInp.value === "" ){
         alert("tool name field cannot be empty");
@@ -111,9 +116,9 @@ function addTool() {
     else{
         get(child(databaseRef, "SerialCount/toolSerialCount"))
         .then((snapshot) => { 
-            let currentSerialNumber = snapshot.val();
-            let newToolId = currentSerialNumber + 1
-            // console.log(currentSerialNumber+ "is the current serial count");
+            let currentToolSerialNumber = snapshot.val();
+            let newToolId = currentToolSerialNumber + 1;
+            // console.log(currentToolSerialNumber+ "is the current tool serial count");
 
             set(ref(db, "Tools/" + newToolId), {
                 toolId: newToolId,
@@ -123,7 +128,7 @@ function addTool() {
             })
             .then(() => {
                 console.log("tool added successfully");
-                updateToolSerialCount(currentSerialNumber+1);
+                updateToolSerialCount(currentToolSerialNumber+1);
 
                 // emptying the fields
                 addToolNameInp.value = "";
@@ -141,11 +146,55 @@ function addTool() {
         });
     }
 }
+// end
 
+// function to add new blog
+function addBlog() {    
+    let addBlogTitleInp = document.getElementById("addBlogTitleInp");
+    let addBlogTextInp = document.getElementById("addBlogTextInp");
 
-function updateToolSerialCount( updatedCount ){
+    if( addBlogTitleInp.value === "" ){
+        alert("tool name field cannot be empty");
+    }else if( addBlogTextInp.value === ""){
+        alert("tool url field cannot be empty");
+    }else {
+        get(child(databaseRef, "SerialCount/blogSerialCount"))
+        .then((snapshot) => { 
+            let currentBlogSerialNumber = snapshot.val();
+            let newBlogId = currentBlogSerialNumber + 1;
+            console.log(currentBlogSerialNumber+ "is the current tool serial count");
+            
+            set(ref(db, "Blogs/" + newBlogId), {
+                blogId: newBlogId,
+                blogTitle: addBlogTitleInp.value.trim(),
+                blogText: addBlogTextInp.value.trim(),
+            })
+            .then(() => {
+                console.log("blog added successfully");
+                updateBlogSerialCount(currentBlogSerialNumber+1);
+
+                // emptying the fields
+                addBlogTitleInp.value = "";
+                addBlogTextInp.value = "";
+            })
+            .catch((error) => {
+                console.log(error);
+                console.log("error aa gai h blog entry m");
+            });
+            
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("error aa gai h blogSerialCount fetch krne m");
+        });
+    }
+}
+// end
+
+// update tools Serial Count
+function updateToolSerialCount( updatedToolCount ){
     update(ref(db, "SerialCount"), {
-        toolSerialCount: updatedCount,
+        toolSerialCount: updatedToolCount,
     })
     .then(() => {
         console.log("tool serialCount updated successfully");
@@ -155,7 +204,22 @@ function updateToolSerialCount( updatedCount ){
         console.log("error aa gai h tool serial count update m");
     });    
 }
+// end
 
+// update tools Serial Count
+function updateBlogSerialCount( updatedBlogCount ){
+    update(ref(db, "SerialCount"), {
+        blogSerialCount: updatedBlogCount,
+    })
+    .then(() => {
+        console.log("blog serialCount updated successfully");
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h blog serial count update m");
+    });    
+}
+// end
 
 
 // functions end
