@@ -159,10 +159,32 @@ function addTool() {
 }
 // end
 
+// function to delete tool
+// window.deleteTool Because onclick dosent work in module type of js 
+window.deleteTool = function(elementObj){
+    let toolIdToBeDeleted = elementObj.dataset.toolId
+    //alert(toolIdToBeDeleted);
+
+    // console.log("deleteToolFunction");
+    remove(child(databaseRef, "Tools/"+toolIdToBeDeleted))
+    .then(() => { 
+        console.log("tool successfully deleted");
+        fetchAllTools();
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h all tool delete krne m");
+    });
+}
+// end
+
 // function to fetch and display all tools in DB
 function fetchAllTools(){
     let historyOfToolInnerBox = document.getElementById("historyOfToolInnerBox");
     let historyOfToolInnerBoxInnerHtmlDynamic = "";
+
+    historyOfToolInnerBox.innerHTML = 
+    `<img class="controllerLoadingGifs self-center hidden" src="../static/images/loading/loadingAnimation.gif" alt="" id="historyOfToolLoadingGif"></img>`;
 
     loadingGifVisibilityToggle( "historyOfToolLoadingGif", "show");
     get(child(databaseRef, "Tools"))
@@ -174,7 +196,7 @@ function fetchAllTools(){
                     `<span class="toolId text-xl text-white mx-1">${child.val().toolId}</span>`+
                     `<span class="toolId text-xl text-white mx-1 w-full">${child.val().toolName}</span>`+
                     `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}"> Edit </button>`+
-                    `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}"> Delete </button>`+
+                    `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}" onclick="deleteTool(this)"> Delete </button>`+
                 `</div>`;
             });     
             historyOfToolInnerBox.innerHTML = historyOfToolInnerBox.innerHTML + historyOfToolInnerBoxInnerHtmlDynamic;
@@ -187,6 +209,7 @@ function fetchAllTools(){
         });
 }
 // end
+
 
 // function to add new blog
 function addBlog() {    
