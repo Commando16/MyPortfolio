@@ -117,11 +117,11 @@ function addTool() {
     let addToolUrlInp = document.getElementById("addToolUrlInp");
     let addToolDescriptionInp = document.getElementById("addToolDescriptionInp");
 
-    if( addToolNameInp.value === "" ){
+    if( addToolNameInp.value.trim() === "" ){
         alert("tool name field cannot be empty");
-    }else if( addToolUrlInp.value === ""){
+    }else if( addToolUrlInp.value.trim() === ""){
         alert("tool url field cannot be empty");
-    }else if( addToolDescriptionInp.value === ""){
+    }else if( addToolDescriptionInp.value.trim() === ""){
         alert("tool description field cannot be empty");        
     }
     else{
@@ -134,8 +134,8 @@ function addTool() {
             set(ref(db, "Tools/" + newToolId), {
                 toolId: newToolId,
                 toolName: addToolNameInp.value.trim(),
-                toolUrl: addToolUrlInp.value,
-                toolDescription: addToolDescriptionInp.value,
+                toolUrl: addToolUrlInp.value.trim(),
+                toolDescription: addToolDescriptionInp.value.trim(),
             })
             .then(() => {
                 console.log("tool added successfully");
@@ -145,6 +145,9 @@ function addTool() {
                 addToolNameInp.value = "";
                 addToolUrlInp.value = "";
                 addToolDescriptionInp.value = "";
+
+                // calling fetchAllTools to refresh the tool history list
+                fetchAllTools()
             })
             .catch((error) => {
                 console.log(error);
@@ -162,13 +165,15 @@ function addTool() {
 // function to delete tool
 // window.deleteTool Because onclick dosent work in module type of js 
 window.deleteTool = function(elementObj){
-    let toolIdToBeDeleted = elementObj.dataset.toolId
+    let toolIdToBeDeleted = elementObj.dataset.toolId;
     //alert(toolIdToBeDeleted);
 
     // console.log("deleteToolFunction");
     remove(child(databaseRef, "Tools/"+toolIdToBeDeleted))
     .then(() => { 
         console.log("tool successfully deleted");
+        
+        // calling fetchAllTools to refresh the tool history list
         fetchAllTools();
     })
     .catch((error) => {
@@ -177,6 +182,79 @@ window.deleteTool = function(elementObj){
     });
 }
 // end
+
+// function to edit tool
+// window.deleteTool Because onclick dosent work in module type of js
+window.editTool = function(elementObj){
+    let toolIdToBeEdited = elementObj.dataset.toolId;
+    //alert(toolIdToBeEdited+" is to be edited");
+    let editToolIdLabel = document.getElementById("editToolIdLabel");
+    let editToolNameInp = document.getElementById("editToolNameInp");
+    let editToolUrlInp = document.getElementById("editToolUrlInp");
+    let editToolDescriptionInp = document.getElementById("editToolDescriptionInp");
+    let editToolSubmitBtn = document.getElementById("editToolSubmitBtn");
+
+
+    get(child(databaseRef, "Tools/"+toolIdToBeEdited))
+    .then((snapshot) => { 
+        editToolIdLabel.innerHTML = toolIdToBeEdited;
+        editToolNameInp.value = snapshot.val().toolName;
+        editToolUrlInp.value = snapshot.val().toolUrl;
+        editToolDescriptionInp.value = snapshot.val().toolDescription;
+
+        // binding click event with proper value in editToolSubmitBtn button
+        editToolSubmitBtn.addEventListener("click", finalEditTool);
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h edit tool fetch krne m");
+    });
+}
+// end
+
+function finalEditTool(){
+    let editToolIdLabel = document.getElementById("editToolIdLabel");
+    
+    let editToolNameInp = document.getElementById("editToolNameInp");
+    let editToolUrlInp = document.getElementById("editToolUrlInp");
+    let editToolDescriptionInp = document.getElementById("editToolDescriptionInp");
+    let editToolSubmitBtn = document.getElementById("editToolSubmitBtn");
+
+    let toolIdToBeEdited = editToolIdLabel.innerHTML;
+    // alert(toolIdToBeEdited+" is the final edit");
+
+    if( editToolNameInp.value.trim() === "" ){
+        alert("edit tool name field cannot be empty");
+    }else if( editToolUrlInp.value.trim() === ""){
+        alert("edit tool url field cannot be empty");
+    }else if( editToolDescriptionInp.value.trim() === ""){
+        alert("edit tool description field cannot be empty");        
+    }
+    else{
+        update(ref(db, "Tools/" + toolIdToBeEdited), {
+            toolName: editToolNameInp.value.trim(),
+            toolUrl: editToolUrlInp.value.trim(),
+            toolDescription: editToolDescriptionInp.value.trim(),
+        })
+        .then(() => {
+            console.log("tool edited successfully");
+
+            // emptying the fields
+            editToolNameInp.value = "";
+            editToolUrlInp.value = "";
+            editToolDescriptionInp.value = "";
+
+            // calling fetchAllTools to refresh the tool history list
+            fetchAllTools()
+        })
+        .catch((error) => {
+            console.log(error);
+            console.log("error aa gai h tool entry m");
+        });
+    }
+
+    
+}
 
 // function to fetch and display all tools in DB
 function fetchAllTools(){
@@ -188,25 +266,25 @@ function fetchAllTools(){
 
     loadingGifVisibilityToggle( "historyOfToolLoadingGif", "show");
     get(child(databaseRef, "Tools"))
-        .then((snapshot) => { 
-            snapshot.forEach((child) =>{
-                // console.log(child.val());
-                historyOfToolInnerBoxInnerHtmlDynamic = historyOfToolInnerBoxInnerHtmlDynamic+
-                `<div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg my-2">`+
-                    `<span class="toolId text-xl text-white mx-1">${child.val().toolId}</span>`+
-                    `<span class="toolId text-xl text-white mx-1 w-full">${child.val().toolName}</span>`+
-                    `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}"> Edit </button>`+
-                    `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}" onclick="deleteTool(this)"> Delete </button>`+
-                `</div>`;
-            });     
-            historyOfToolInnerBox.innerHTML = historyOfToolInnerBox.innerHTML + historyOfToolInnerBoxInnerHtmlDynamic;
+    .then((snapshot) => { 
+        snapshot.forEach((child) =>{
+            // console.log(child.val());
+            historyOfToolInnerBoxInnerHtmlDynamic = historyOfToolInnerBoxInnerHtmlDynamic+
+            `<div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg my-2">`+
+                `<span class="toolId text-xl text-white mx-1">${child.val().toolId}</span>`+
+                `<span class="toolId text-xl text-white mx-1 w-full">${child.val().toolName}</span>`+
+                `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}" onclick="editTool(this)"> Edit </button>`+
+                `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().toolId}" onclick="deleteTool(this)"> Delete </button>`+
+            `</div>`;
+        });     
+        historyOfToolInnerBox.innerHTML = historyOfToolInnerBox.innerHTML + historyOfToolInnerBoxInnerHtmlDynamic;
 
-            loadingGifVisibilityToggle( "historyOfToolLoadingGif", "hide");
-        })
-        .catch((error) => {
-            console.log(error);
-            console.log("error aa gai h all tool fetch krne m");
-        });
+        loadingGifVisibilityToggle( "historyOfToolLoadingGif", "hide");
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h all tool fetch krne m");
+    });
 }
 // end
 

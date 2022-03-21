@@ -7,17 +7,18 @@
 
 # change icon on admin page input fields.
 
+# add a warning and confirmation when  deleting any stuff
+
 
 ## Admin panel stuff
- - blog entry
+(Done) - blog entry
  - blog delete
  - blog edit
 
- - toolrecondation add/entry
- - tool recondation delete
+(Done) - toolrecondation add/entry
+(Done) - tool recondation delete
  - tool recondation edit
 
  - admin password change
  - profile picture change
  - social media add
- - 

@@ -66,18 +66,7 @@
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Tool history</h1>
             <div class="controllerBox glassMorph rounded-lg flex flex-col w-full py-4 px-2" id="historyOfToolInnerBox">
               <!-- loading gif comes here dynamically-->
-              
-              
               <!-- DYNAMIC CONTENT HERE -->
-              <!-- 
-              <div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg">
-                <span class="toolId text-xl text-white mx-1">0</span>
-                <span class="toolId text-xl text-white mx-1 w-full">falana dhimkana</span>
-                <button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1" data-tool-id="0"> Edit </button>
-                <button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1" data-tool-id="0"> Delete </button>
-              </div> 
-              -->
-              
             </div>
           </div>
           <!-- history of tools end -->
@@ -97,6 +86,26 @@
               <textarea type="textarea" class="controllersInputs controllersTextAreas self-center rounded-[25px] font-medium w-full text-xl px-2" id="addToolDescriptionInp"></textarea>
               <!---->
               <button class="controllersButtons glassMorph text-2xl text-white/[0.9] self-center font-medium rounded-full px-5 mt-4" id="addToolSubmitBtn">Add</button>
+            </div>
+          </div>
+          <!-- add tool -->
+          <!--  -->
+          <!-- edit tool -->
+          <div id="editToolParentBox">
+            <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Edit tool</h1>
+            <div class="controllerBox glassMorph rounded-lg flex flex-col w-full py-4 px-2">
+              <label class="text-xl text-white/[0.9] font-medium mb-2">Tool Id: <span id="editToolIdLabel"></span></label>
+              <!---->
+              <label for="editToolNameInp" class="text-xl text-white/[0.9] leading-loose">Tool name</label>
+              <input type="text" class="controllersInputs self-center rounded-full font-medium text-xl px-2" id="editToolNameInp">
+              <!---->
+              <label for="addToolUrlInp" class="text-xl text-white/[0.9] leading-loose">Tool URL</label>
+              <input type="text" class="controllersInputs self-center rounded-full font-medium text-xl px-2" id="editToolUrlInp">
+              <!---->
+              <label for="addToolDescriptionInp" class="text-xl text-white/[0.9] leading-loose">Tool Description</label>
+              <textarea type="textarea" class="controllersInputs controllersTextAreas self-center rounded-[25px] font-medium w-full text-xl px-2" id="editToolDescriptionInp"></textarea>
+              <!---->
+              <button class="controllersButtons glassMorph text-2xl text-white/[0.9] self-center font-medium rounded-full px-5 mt-4" id="editToolSubmitBtn">Set</button>
             </div>
           </div>
           <!-- add tool -->
