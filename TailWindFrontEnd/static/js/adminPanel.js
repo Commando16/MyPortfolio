@@ -327,6 +327,9 @@ function addBlog() {
                 // emptying the fields
                 addBlogTitleInp.value = "";
                 addBlogTextInp.value = "";
+
+                // calling fetchAllBlogs to refresh the blog history list
+                fetchAllBlogs();
             })
             .catch((error) => {
                 console.log(error);
@@ -339,6 +342,28 @@ function addBlog() {
             console.log("error aa gai h blogSerialCount fetch krne m");
         });
     }
+}
+// end
+
+// function to delete blog
+window.deleteBlog = function(elementObj){
+    let blogIdToBeDeleted = elementObj.dataset.blogId;
+    // alert(blogIdToBeDeleted);
+
+    // console.log("deleteToolFunction");
+    
+    remove(child(databaseRef, "Blogs/"+blogIdToBeDeleted))
+    .then(() => { 
+        console.log("blog successfully deleted");
+        
+        // calling fetchAllBlogs to refresh the blog history list
+        fetchAllBlogs();
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h all blog delete krne m");
+    });
+    
 }
 // end
 
@@ -360,8 +385,8 @@ function fetchAllBlogs(){
             `<div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg my-2">`+
                 `<span class="toolId text-xl text-white mx-1">${child.val().blogId}</span>`+
                 `<span class="toolId text-xl text-white mx-1 w-full">${child.val().blogTitle}</span>`+
-                `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().blogId}" onclick="editTool(this)"> Edit </button>`+
-                `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().blogId}" onclick="deleteTool(this)"> Delete </button>`+
+                `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-blog-id="${child.val().blogId}" onclick="editBlog(this)"> Edit </button>`+
+                `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-blog-id="${child.val().blogId}" onclick="deleteBlog(this)"> Delete </button>`+
             `</div>`;
         });     
         historyOfBlogInnerBox.innerHTML = historyOfBlogInnerBox.innerHTML + historyOfBlogInnerBoxInnerHtmlDynamic;
