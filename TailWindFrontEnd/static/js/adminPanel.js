@@ -53,6 +53,7 @@ document.getElementById("addBlogSubmitBtn").addEventListener("click", addBlog);
 
 // initial function call -----------------------------------------------------
 fetchAllTools();
+fetchAllBlogs();
 // initial function call end -------------------------------------------------
 
 //
@@ -110,6 +111,11 @@ function controllerDisplay() {
     document.getElementById(targetedControllerId).classList.add("block");
 }
 // end
+
+
+
+
+
 
 // function to add new tool
 function addTool() {
@@ -289,6 +295,10 @@ function fetchAllTools(){
 // end
 
 
+
+
+
+
 // function to add new blog
 function addBlog() {    
     let addBlogTitleInp = document.getElementById("addBlogTitleInp");
@@ -331,6 +341,44 @@ function addBlog() {
     }
 }
 // end
+
+// function to fetch all blog history
+function fetchAllBlogs(){
+    let historyOfBlogInnerBox = document.getElementById("historyOfBlogInnerBox");
+    let historyOfBlogInnerBoxInnerHtmlDynamic = "";
+
+    historyOfBlogInnerBox.innerHTML = 
+    `<img class="controllerLoadingGifs self-center hidden" src="../static/images/loading/loadingAnimation.gif" alt="" id="historyOfBlogLoadingGif"></img>`;
+
+    loadingGifVisibilityToggle( "historyOfBlogLoadingGif", "show");
+
+    get(child(databaseRef, "Blogs"))
+    .then((snapshot) => { 
+        snapshot.forEach((child) =>{
+            // console.log(child.val());
+            historyOfBlogInnerBoxInnerHtmlDynamic = historyOfBlogInnerBoxInnerHtmlDynamic+
+            `<div class="toolRow w-full p-2 bg-black/[0.2] rounded-lg my-2">`+
+                `<span class="toolId text-xl text-white mx-1">${child.val().blogId}</span>`+
+                `<span class="toolId text-xl text-white mx-1 w-full">${child.val().blogTitle}</span>`+
+                `<button class="controllersButtons bg-blue-600 hover:bg-blue-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().blogId}" onclick="editTool(this)"> Edit </button>`+
+                `<button class="controllersButtons bg-rose-600 hover:bg-rose-700 text-xl text-white font-medium rounded-full px-4 py-1 mx-1" data-tool-id="${child.val().blogId}" onclick="deleteTool(this)"> Delete </button>`+
+            `</div>`;
+        });     
+        historyOfBlogInnerBox.innerHTML = historyOfBlogInnerBox.innerHTML + historyOfBlogInnerBoxInnerHtmlDynamic;
+
+        loadingGifVisibilityToggle( "historyOfBlogLoadingGif", "hide");
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h all tool fetch krne m");
+    });
+
+}
+// end
+
+
+
+
 
 // update tools Serial Count
 function updateToolSerialCount( updatedToolCount ){
