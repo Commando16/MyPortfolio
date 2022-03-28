@@ -121,7 +121,11 @@ function controllerDisplay() {
 function addTool() {
     let addToolNameInp = document.getElementById("addToolNameInp");
     let addToolUrlInp = document.getElementById("addToolUrlInp");
+    let addToolRatingInp = document.getElementById("addToolRatingInp");
+    let addToolLearningCurveInp = document.getElementById("addToolLearningCurveInp");
     let addToolDescriptionInp = document.getElementById("addToolDescriptionInp");
+    let addToolTagsInp = document.getElementById("addToolTagsInp");
+
 
     if( addToolNameInp.value.trim() === "" ){
         alert("tool name field cannot be empty");
@@ -138,10 +142,14 @@ function addTool() {
             // console.log(currentToolSerialNumber+ "is the current tool serial count");
 
             set(ref(db, "Tools/" + newToolId), {
-                toolId: newToolId,
-                toolName: addToolNameInp.value.trim(),
-                toolUrl: addToolUrlInp.value.trim(),
-                toolDescription: addToolDescriptionInp.value.trim(),
+                toolId:                 newToolId,
+                toolName:               addToolNameInp.value.trim(),
+                toolUrl:                addToolUrlInp.value.trim(),
+                toolRating:             addToolRatingInp.value,
+                toolLearningCurve:      addToolLearningCurveInp.value,
+                toolDescription:        addToolDescriptionInp.value.trim(),
+                toolTags:               addToolTagsInp.value
+                
             })
             .then(() => {
                 console.log("tool added successfully");
@@ -150,7 +158,10 @@ function addTool() {
                 // emptying the fields
                 addToolNameInp.value = "";
                 addToolUrlInp.value = "";
+                addToolRatingInp.value = "";
+                addToolLearningCurveInp = "";
                 addToolDescriptionInp.value = "";
+                addToolTagsInp.value = "";
 
                 // calling fetchAllTools to refresh the tool history list
                 fetchAllTools()

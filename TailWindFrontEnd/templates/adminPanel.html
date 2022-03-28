@@ -60,7 +60,7 @@
         <!--  -->
         <!--  -->
         <!-- tool recommendation -->
-        <div class="controllerContainer w-full h-full flex flex-wrap hidden" id="toolRecommendationControllers">
+        <div class="controllerContainer w-full h-full flex flex-wrap block" id="toolRecommendationControllers">
           <!-- history of tools -->
           <div class="w-full mx-2 my-1" id="historyOfToolParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Tool history</h1>
@@ -82,8 +82,29 @@
               <label for="addToolUrlInp" class="text-xl text-white/[0.9] leading-loose">Tool URL</label>
               <input type="text" class="controllersInputs self-center rounded-full font-medium text-xl px-2" id="addToolUrlInp">
               <!---->
+              <label for="addToolRatingInp" class="text-xl text-white/[0.9] leading-loose">Tool Rating(out of 5)</label>
+              <select class="controllersInputs self-start rounded-full font-medium text-xl px-8" id="addToolRatingInp">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <!---->
+              <label for="addToolLearningCurveInp" class="text-xl text-white/[0.9] leading-loose">Tool Learning Curve</label>
+              <select class="controllersInputs self-start rounded-full font-medium text-xl px-8" id="addToolLearningCurveInp">
+                <option value="easy">easy</option>
+                <option value="easy-medium">easy-medium</option>
+                <option value="medium">medium</option>
+                <option value="medium-hard">medium-hard</option>
+                <option value="hard">hard</option>
+              </select>
+              <!---->
               <label for="addToolDescriptionInp" class="text-xl text-white/[0.9] leading-loose">Tool Description</label>
               <textarea type="textarea" class="controllersInputs controllersTextAreas self-center rounded-[25px] font-medium w-full text-xl px-2" id="addToolDescriptionInp"></textarea>
+              <!---->
+              <label for="addToolTagsInp" class="text-xl text-white/[0.9] leading-loose">Tool Tags</label>
+              <textarea type="textarea" class="controllersInputs controllersTextAreas self-center rounded-[25px] font-medium w-full text-xl px-2" id="addToolTagsInp"></textarea>
               <!---->
               <button class="controllersButtons glassMorph text-2xl text-white/[0.9] self-center font-medium rounded-full px-5 mt-4" id="addToolSubmitBtn">Add</button>
             </div>
@@ -117,7 +138,7 @@
         <!--  -->
         <!--  -->
         <!-- blog -->
-        <div class="controllerContainer w-full h-full flex flex-wrap block" id="blogControllers">
+        <div class="controllerContainer w-full h-full flex flex-wrap hidden" id="blogControllers">
           <!-- history of tools -->
           <div class="w-full mx-2 my-1" id="historyOfBlogParentBox">
             <h1 class="text-2xl text-white/[0.9] font-medium mb-2">Blog history</h1>
