@@ -19,9 +19,24 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase();
 const databaseRef = ref(db);
 
+
+
+
+
 // Inital function call
 showToolCards()
 // Inital function call end
+
+
+
+
+
+// Event Listeners
+document.getElementById("describePopupCloseButton").addEventListener("click",describePopupClose);
+// Event Listeners end
+
+
+
 
 
 // functions
@@ -56,7 +71,7 @@ function showToolCards(){
             `<p class="text-xl text-white/[0.9] font-medium text-center justify-center">learning curve: <br>${child.val().toolLearningCurve}</p>`+
             `<!-- card text end -->`+
             `<!-- card visit buttton -->`+
-            `<a class="visitButton glassMorph text-2xl text-white/[0.9] rounded-full px-8 py-1 absolute" href="${child.val().toolUrl}"> visit </a>`+
+            `<p class="Buttons glassMorph text-2xl text-white/[0.9] rounded-full px-8 py-1 absolute" onclick="showPopup(${child.val().toolId})">view</p>`+
             `<!-- card visit buttton end -->`+
             `</div>`+
             `<!-- tool card -->`;
@@ -71,5 +86,42 @@ function showToolCards(){
     });
     
 }
+
+
+// function to show pop up
+window.showPopup = function( toolId ){
+    // alert(toolId);
+
+    get(child(databaseRef, "Tools/"+toolId))
+    .then((snapshot) => {
+        console.log(snapshot.val());
+        let describePopupSection = document.getElementById("describePopupSection");
+
+        
+        describePopupSection.classList.remove("hidden");
+        describePopupSection.classList.add("block");
+    })
+    .catch((error) => {
+        console.log(error);
+        console.log("error aa gai h edit toolId "+toolId+" fetch krne m");
+    });
+
+}
+// end
+
+
+
+
+
+// funtion to close tool discribe pop up
+function describePopupClose(){
+    let describePopupSection = document.getElementById("describePopupSection");
+
+    describePopupSection.classList.remove("block");
+    describePopupSection.classList.add("hidden");
+}
+// end
+
+
 
 // functions end

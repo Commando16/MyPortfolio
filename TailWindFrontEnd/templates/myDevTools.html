@@ -13,7 +13,7 @@
 
 </head>
 
-<body>
+<body class="relative">
   <section class="flex justify-center px-4 lg:px-12" id="allTools">
     <div class="glassMorph rounded-lg self-center flex flex-col md:flex-row justify-start">
       <!-- Left parent -->
@@ -29,6 +29,79 @@
         <!-- Dynamic content here -->
       </div>
       <!-- Right parent end -->
+    </div>
+  </section>
+
+  <section class="absolute flex justify-center top-0 left-0 h-full w-full bg-transparent px-4 lg:px-8 py-8 hidden" id="describePopupSection">
+    <div class="relative self-center glassMorph rounded-lg overflow-y-auto py-4">
+      <!-- close button -->
+      <div class="sticky bg-transparent">
+        <span class="absolute right-[20px] text-3xl text-white/[0.9] font-medium" id="describePopupCloseButton">X</span>
+      </div>
+      <!-- close button ends -->
+      <!-- toolDescribeBox -->
+      <div class="flex flex-col lg:flex-row px-4 h-full" id="describeBox">
+        <!-- describeBoxInnerLeftBox -->
+        <div class="mr-0 lg:mr-1 relative" id="describeBoxInnerLeftBox">
+          <div class="flex justify-center">
+            <img src="../static/images/brandImages/keyframes_app.png" alt="" class="glassMorph rounded-[16px] mb-4" id="describeToolImage">
+          </div>
+          <p class="text-2xl text-white/[0.9] text-center font-medium">rating</p>
+          <a class="Buttons glassMorph text-2xl text-white/[0.9] rounded-full px-8 py-1 absolute" href="#">visit</a>
+        </div>
+        <!-- describeBoxInnerLeftBox end -->
+
+        <!-- seperator -->
+        <div class="seperator w-full lg:w-[1px] h-[1px] lg:h-full mx-0 lg:mx-1"></div>
+        <!-- seperator end-->
+
+        <!-- describeBoxInnerRightBox -->
+        <div class="w-full ml-0 lg:ml-1" id="describeBoxInnerRightBox">
+          <h1 class="text-4xl text-white/[0.9] font-medium leading-relaxed">name<h1>
+          <p class="text-2xl text-white/[0.9] font-medium">Description text</p>
+          <br>
+          <h1 class="text-2xl text-white/[0.9] font-medium leading-relaxed">Learning curve:
+            <span class="text-2xl text-white/[0.9] font-normal">BLA BLA</span>
+          </h1>
+
+          <!-- seperator -->
+          <div class="seperator w-full h-[1px] mx-0 lg:mx-1 my-4"></div>
+          <!-- seperator end -->
+
+          <h1 class="text-2xl text-white/[0.9] font-medium mb-4">Tags<h1></h1>
+          <div class="flex flex-wrap" id="tagContainer">
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag1</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag2</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag3</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tdsfdsfdsffdsfdsf</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag5</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag6</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag7</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag8</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag9dfsdfsdffdf</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tagyrty1</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag2</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tafdfsdfasdfg3</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag4</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag5</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tyrtyrtyrtag6</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag7yyt</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tadfggfhgfhhhhg8</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag9</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag1</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tatygrtyrtyrtg2</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag3gfhfghgfhgfhfyhtry</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag4</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag5</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag6</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag7</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag8</span>
+            <span class="tag text-xl font-medium bg-white/[0.9] rounded-full px-4 py-2 m-2">tag9</span>
+          </div>
+        </div>
+        <!-- describeBoxInnerRightBox end -->
+      </div>
+      <!-- toolDescribeBox end -->
     </div>
   </section>
 
